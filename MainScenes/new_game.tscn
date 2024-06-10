@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://beeo6wb5btqkj"]
+
+[ext_resource type="Texture2D" uid="uid://c8ompoubljbgd" path="res://Images/inside.png" id="1_wptoa"]
+[ext_resource type="Texture2D" uid="uid://b2s3n5afjtyri" path="res://Images/objects01.png" id="2_8xn35"]
+[ext_resource type="Texture2D" uid="uid://cpikbw07qvied" path="res://Images/scales.png" id="3_q84jd"]
+
+[node name="NewGame" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -5.0
+offset_top = -185.0
+offset_right = 1164.0
+offset_bottom = 666.0
+texture = ExtResource("1_wptoa")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Cauldron" type="Sprite2D" parent="."]
+position = Vector2(224, 376)
+scale = Vector2(0.834951, 0.834951)
+texture = ExtResource("2_8xn35")
+centered = false
+region_enabled = true
+region_rect = Rect2(405, 242, 452, 309)
+
+[node name="Scales" type="Sprite2D" parent="."]
+position = Vector2(736, 317)
+scale = Vector2(0.252187, 0.253644)
+texture = ExtResource("3_q84jd")
+region_enabled = true
+region_rect = Rect2(430, 249, 361, 343)
+
+[node name="Tray" type="Sprite2D" parent="."]
+position = Vector2(481, 317)
+rotation = -1.5708
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("3_q84jd")
+region_enabled = true
+region_rect = Rect2(320, 855, 379, 150)

@@ -1,0 +1,133 @@
+[gd_scene load_steps=6 format=3 uid="uid://s7no0auxep3y"]
+
+[ext_resource type="Texture2D" uid="uid://bhgv1riiqpevt" path="res://Images/witchs hut.png" id="1_00r6i"]
+[ext_resource type="Script" path="res://MainScenes/MainMenu/settings_button.gd" id="1_motlp"]
+[ext_resource type="Script" path="res://MainScenes/MainMenu/new_game_button.gd" id="1_rkvwr"]
+[ext_resource type="Script" path="res://MainScenes/MainMenu/continue_button.gd" id="2_0n7q5"]
+[ext_resource type="Script" path="res://MainScenes/MainMenu/quit_button.gd" id="3_xaonx"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -60.0
+offset_right = 1148.0
+offset_bottom = 775.0
+texture = ExtResource("1_00r6i")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -442.0
+offset_top = 73.0
+offset_right = -32.0
+offset_bottom = 233.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Esme's Apothecary"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -515.0
+offset_top = -187.0
+offset_right = -202.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="NewGameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 18
+text = "TITLE_SCREEN_NEW_GAME_BUTTON"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_rkvwr")
+new_game_scene_path = "res://MainScenes/new_game.tscn"
+
+[node name="Button" type="Button" parent="VBoxContainer/NewGameLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueLabel" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 18
+text = "TITLE_SCREEN_CONTINUE_GAME_BUTTON"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_0n7q5")
+
+[node name="Button" type="Button" parent="VBoxContainer/ContinueLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 18
+text = "TITLE_SCREEN_SETTINGS_BUTTON"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_motlp")
+
+[node name="Button" type="Button" parent="VBoxContainer/SettingsLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuitLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 18
+text = "TITLE_SCREEN_QUIT_GAME_BUTTON"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_xaonx")
+
+[node name="Button" type="Button" parent="VBoxContainer/QuitLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="VBoxContainer/NewGameLabel/Button" to="VBoxContainer/NewGameLabel" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ContinueLabel/Button" to="VBoxContainer/ContinueLabel" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsLabel/Button" to="VBoxContainer/SettingsLabel" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitLabel/Button" to="VBoxContainer/QuitLabel" method="_on_quit_button_pressed"]
