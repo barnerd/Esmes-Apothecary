@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://beeo6wb5btqkj"]
+[gd_scene load_steps=6 format=3 uid="uid://beeo6wb5btqkj"]
 
 [ext_resource type="Texture2D" uid="uid://c8ompoubljbgd" path="res://Images/inside.png" id="1_wptoa"]
-[ext_resource type="Texture2D" uid="uid://b2s3n5afjtyri" path="res://Images/objects01.png" id="2_8xn35"]
+[ext_resource type="Texture2D" uid="uid://brvfahusbs111" path="res://Images/cauldron.png" id="2_ety51"]
+[ext_resource type="Texture2D" uid="uid://5sn5cs44h2y4" path="res://Images/cauldron_outline.png" id="3_4yoej"]
 [ext_resource type="Texture2D" uid="uid://cpikbw07qvied" path="res://Images/scales.png" id="3_q84jd"]
+[ext_resource type="PackedScene" uid="uid://2vt8vqdvn28t" path="res://Objects/Scale.tscn" id="4_irobb"]
 
 [node name="NewGame" type="Node2D"]
 
@@ -15,22 +17,30 @@ texture = ExtResource("1_wptoa")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="Cauldron" type="Sprite2D" parent="."]
-position = Vector2(224, 376)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cauldron" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 403.0
+offset_right = 710.0
+offset_bottom = 742.0
 scale = Vector2(0.834951, 0.834951)
-texture = ExtResource("2_8xn35")
-centered = false
-region_enabled = true
-region_rect = Rect2(405, 242, 452, 309)
+texture_normal = ExtResource("2_ety51")
+texture_hover = ExtResource("3_4yoej")
+stretch_mode = 4
 
-[node name="Scales" type="Sprite2D" parent="."]
-position = Vector2(736, 317)
-scale = Vector2(0.252187, 0.253644)
-texture = ExtResource("3_q84jd")
-region_enabled = true
-region_rect = Rect2(430, 249, 361, 343)
+[node name="Scale" parent="Control" instance=ExtResource("4_irobb")]
+position = Vector2(748, 347)
+scale = Vector2(0.258631, 0.258631)
 
-[node name="Tray" type="Sprite2D" parent="."]
+[node name="Tray" type="Sprite2D" parent="Control"]
 position = Vector2(481, 317)
 rotation = -1.5708
 scale = Vector2(0.24, 0.24)
