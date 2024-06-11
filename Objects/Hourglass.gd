@@ -1,15 +1,11 @@
 extends Node2D
 
+signal hourglass_timer_started
 signal hourglass_timer_finished
 
 @onready var sand_drip = $Background/Drip
 @onready var lower_sand = $Background/BottomMask/BottomSand # should go from 487 to 167
 @onready var upper_sand = $Background/TopMask/TopSand # should go from -145 to 345
-
-
-func _ready() -> void:
-	await get_tree().create_timer(0.5).timeout
-	flip_hourglass(30)
 
 
 func flip_hourglass(drain_time: float) -> void:
@@ -25,6 +21,8 @@ func flip_hourglass(drain_time: float) -> void:
 
 
 func drain_sand(drain_time: float) -> void:
+	hourglass_timer_started.emit()
+	
 	sand_drip.visible = true
 	var tween = get_tree().create_tween().set_parallel(true)
 	tween.tween_property(upper_sand, "position:y", 345, drain_time).from(-145)
@@ -33,9 +31,8 @@ func drain_sand(drain_time: float) -> void:
 	await tween.finished
 	sand_drip.visible = false
 	
-	await get_tree().create_timer(0.5).timeout
 	hourglass_timer_finished.emit()
-	reset_hourglass()
+
 
 func reset_hourglass() -> void:
 	#upper_sand.position.y = -229

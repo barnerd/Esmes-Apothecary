@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://lcemyy5tkt66"]
+
+[ext_resource type="Script" path="res://MiniGames/cauldron_minigame.gd" id="1_el2i4"]
+[ext_resource type="Texture2D" uid="uid://c8ompoubljbgd" path="res://Images/inside.png" id="1_pvca3"]
+[ext_resource type="Texture2D" uid="uid://dhf82sf55jhc3" path="res://Images/TempSlider/Slider.PNG" id="2_ka6p3"]
+[ext_resource type="Texture2D" uid="uid://brvfahusbs111" path="res://Images/cauldron.png" id="2_ml0h6"]
+[ext_resource type="Texture2D" uid="uid://nwd4xfchc4c1" path="res://Images/TempSlider/BrightGradiant.PNG" id="3_pfpfg"]
+[ext_resource type="PackedScene" uid="uid://brlo6pb2dh2pg" path="res://Objects/Hourglass.tscn" id="4_6omus"]
+[ext_resource type="Texture2D" uid="uid://rxopjklc2wod" path="res://Images/tray.png" id="7_4e27q"]
+[ext_resource type="Texture2D" uid="uid://b4lhxu77lw6af" path="res://Images/Wooden bowl.PNG" id="8_in8bj"]
+[ext_resource type="Texture2D" uid="uid://072j830gup27" path="res://Images/Metal bowl.PNG" id="9_xm4rl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0axqs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8tixf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_crb5q"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+texture = ExtResource("3_pfpfg")
+
+[sub_resource type="Theme" id="Theme_ous7r"]
+VSlider/icons/grabber = ExtResource("2_ka6p3")
+VSlider/icons/grabber_disabled = ExtResource("2_ka6p3")
+VSlider/icons/grabber_highlight = ExtResource("2_ka6p3")
+VSlider/styles/grabber_area = SubResource("StyleBoxEmpty_0axqs")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_8tixf")
+VSlider/styles/slider = SubResource("StyleBoxTexture_crb5q")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvigl"]
+bg_color = Color(0.443137, 0.960784, 0.980392, 0.466667)
+
+[node name="CauldronMiniGame" type="Node2D"]
+script = ExtResource("1_el2i4")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 221.302
+offset_top = -63.234
+offset_right = 1391.43
+offset_bottom = 787.766
+scale = Vector2(1.722, 1.722)
+pivot_offset = Vector2(391, 803)
+texture = ExtResource("1_pvca3")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 226.302
+offset_top = 121.766
+offset_right = 226.302
+offset_bottom = 121.766
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.72193, 1.72193)
+pivot_offset = Vector2(385, 630)
+theme = SubResource("Theme_ous7r")
+
+[node name="Cauldron" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 403.0
+offset_right = 710.0
+offset_bottom = 742.0
+scale = Vector2(0.834951, 0.834951)
+texture_normal = ExtResource("2_ml0h6")
+stretch_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 598.539
+offset_top = 182.963
+offset_right = 684.539
+offset_bottom = 324.963
+scale = Vector2(0.457574, 0.457574)
+pivot_offset = Vector2(44, 72)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pvigl")
+
+[node name="Hourglass" parent="Control/PanelContainer" instance=ExtResource("4_6omus")]
+position = Vector2(44, 70)
+rotation = 0.0
+scale = Vector2(0.0967406, 0.0967406)
+
+[node name="TempSlider" type="VSlider" parent="Control"]
+layout_mode = 0
+offset_left = 172.853
+offset_top = 389.708
+offset_right = 295.853
+offset_bottom = 587.708
+scale = Vector2(0.25, 0.5)
+
+[node name="StirSlider" type="VSlider" parent="Control"]
+layout_mode = 0
+offset_left = 332.558
+offset_top = 274.72
+offset_right = 455.558
+offset_bottom = 499.72
+scale = Vector2(0.297, 0.5)
+
+[node name="Tray" type="TextureButton" parent="."]
+offset_left = 700.0
+offset_top = 286.0
+offset_right = 1075.0
+offset_bottom = 431.0
+scale = Vector2(0.562896, 0.562896)
+pivot_offset = Vector2(186.536, 58.6254)
+texture_normal = ExtResource("7_4e27q")
+stretch_mode = 4
+
+[node name="TextureButton" type="TextureButton" parent="Tray"]
+layout_mode = 0
+offset_left = 73.6628
+offset_top = -24.206
+offset_right = 218.663
+offset_bottom = 94.794
+scale = Vector2(0.741095, 0.741095)
+texture_normal = ExtResource("8_in8bj")
+stretch_mode = 4
+
+[node name="TextureButton2" type="TextureButton" parent="Tray"]
+layout_mode = 0
+offset_left = 203.349
+offset_top = -1.11114
+offset_right = 352.349
+offset_bottom = 117.889
+scale = Vector2(0.673415, 0.673415)
+texture_normal = ExtResource("9_xm4rl")
+stretch_mode = 4

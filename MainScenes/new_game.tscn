@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://beeo6wb5btqkj"]
+[gd_scene load_steps=7 format=3 uid="uid://beeo6wb5btqkj"]
 
 [ext_resource type="Texture2D" uid="uid://c8ompoubljbgd" path="res://Images/inside.png" id="1_wptoa"]
 [ext_resource type="Texture2D" uid="uid://brvfahusbs111" path="res://Images/cauldron.png" id="2_ety51"]
 [ext_resource type="Texture2D" uid="uid://5sn5cs44h2y4" path="res://Images/cauldron_outline.png" id="3_4yoej"]
-[ext_resource type="Texture2D" uid="uid://cpikbw07qvied" path="res://Images/scales.png" id="3_q84jd"]
+[ext_resource type="Script" path="res://MainScenes/launch_cauldron_minigame.gd" id="4_4ilvp"]
 [ext_resource type="PackedScene" uid="uid://2vt8vqdvn28t" path="res://Objects/Scale.tscn" id="4_irobb"]
+[ext_resource type="Texture2D" uid="uid://rxopjklc2wod" path="res://Images/tray.png" id="6_55bl5"]
 
 [node name="NewGame" type="Node2D"]
 
@@ -35,6 +36,8 @@ scale = Vector2(0.834951, 0.834951)
 texture_normal = ExtResource("2_ety51")
 texture_hover = ExtResource("3_4yoej")
 stretch_mode = 4
+script = ExtResource("4_4ilvp")
+cauldron_minigame_path = "res://MiniGames/CauldronMiniGame.tscn"
 
 [node name="Scale" parent="Control" instance=ExtResource("4_irobb")]
 position = Vector2(748, 347)
@@ -44,6 +47,7 @@ scale = Vector2(0.258631, 0.258631)
 position = Vector2(481, 317)
 rotation = -1.5708
 scale = Vector2(0.24, 0.24)
-texture = ExtResource("3_q84jd")
-region_enabled = true
+texture = ExtResource("6_55bl5")
 region_rect = Rect2(320, 855, 379, 150)
+
+[connection signal="pressed" from="Control/Cauldron" to="Control/Cauldron" method="_on_pressed"]
