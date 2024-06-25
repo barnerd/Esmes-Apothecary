@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://2vt8vqdvn28t"]
+
+[ext_resource type="Texture2D" uid="uid://duf3okum3xm8x" path="res://Images/Scales/Lever.PNG" id="1_k5ow5"]
+[ext_resource type="Script" path="res://Objects/ScalesLever.gd" id="2_dyr34"]
+[ext_resource type="Texture2D" uid="uid://cmov35c57evak" path="res://Images/Scales/Right Scale.PNG" id="2_pooqe"]
+[ext_resource type="Texture2D" uid="uid://cq15avnr4yjdl" path="res://Images/Scales/Left Scale.PNG" id="3_pdvpv"]
+[ext_resource type="Texture2D" uid="uid://d22gl0gdd36fc" path="res://Images/Scales/Base.PNG" id="4_quryv"]
+
+[node name="Scale" type="Node2D"]
+position = Vector2(209, 329)
+
+[node name="Lever" type="Sprite2D" parent="."]
+position = Vector2(0, -220)
+texture = ExtResource("1_k5ow5")
+offset = Vector2(3, 11)
+script = ExtResource("2_dyr34")
+
+[node name="RightScale" type="Sprite2D" parent="Lever"]
+position = Vector2(131, 32.5)
+texture = ExtResource("2_pooqe")
+offset = Vector2(2, 66)
+
+[node name="LeftScale" type="Sprite2D" parent="Lever"]
+position = Vector2(-127, 31.5)
+texture = ExtResource("3_pdvpv")
+offset = Vector2(-2, 66)
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(51, -134)
+texture = ExtResource("4_quryv")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://brlo6pb2dh2pg"]
+
+[ext_resource type="Script" path="res://Objects/Hourglass.gd" id="1_g1m7w"]
+[ext_resource type="Texture2D" uid="uid://drtn45hq7jkfp" path="res://Images/Hourglass/Background.PNG" id="2_ff5t3"]
+[ext_resource type="Texture2D" uid="uid://dagdv7h262pr8" path="res://Images/Hourglass/BottomMask.PNG" id="3_1ij6e"]
+[ext_resource type="Texture2D" uid="uid://cppvedl307vs6" path="res://Images/Hourglass/BottomSand.PNG" id="4_cyrya"]
+[ext_resource type="Texture2D" uid="uid://co04bq818n4lq" path="res://Images/Hourglass/Drip.PNG" id="5_armam"]
+[ext_resource type="Texture2D" uid="uid://dx0apc47cd8w6" path="res://Images/Hourglass/Top Mask.PNG" id="6_gkw1w"]
+[ext_resource type="Texture2D" uid="uid://dpxtij4p32og2" path="res://Images/Hourglass/Top Sand.PNG" id="7_36jfs"]
+
+[node name="Hourglass" type="Node2D"]
+position = Vector2(262, 308)
+rotation = -3.14159
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_g1m7w")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_ff5t3")
+
+[node name="BottomMask" type="Sprite2D" parent="Background"]
+clip_children = 2
+position = Vector2(2, 0)
+texture = ExtResource("3_1ij6e")
+
+[node name="BottomSand" type="Sprite2D" parent="Background/BottomMask"]
+position = Vector2(0, 513)
+texture = ExtResource("4_cyrya")
+
+[node name="Drip" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(-6, -11)
+scale = Vector2(2, 1.1)
+texture = ExtResource("5_armam")
+
+[node name="TopMask" type="Sprite2D" parent="Background"]
+clip_children = 2
+position = Vector2(1, -1)
+texture = ExtResource("6_gkw1w")
+
+[node name="TopSand" type="Sprite2D" parent="Background/TopMask"]
+show_behind_parent = true
+position = Vector2(0, -229)
+texture = ExtResource("7_36jfs")

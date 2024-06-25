@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhcd7m45kmmxo"]
+
+[ext_resource type="FontFile" uid="uid://btbdkc4tt0px7" path="res://Fonts/Indie_Flower/IndieFlower-Regular.ttf" id="1_b0j1l"]
+
+[node name="Button" type="Button"]
+theme_override_fonts/font = ExtResource("1_b0j1l")
+theme_override_font_sizes/font_size = 20
+text = "Options 1"
+alignment = 0

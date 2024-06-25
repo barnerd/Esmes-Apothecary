@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bht284oabfpgr"]
+
+[ext_resource type="Shader" path="res://Objects/Liquid/liquid_shader.gdshader" id="1_7k1un"]
+
+[resource]
+shader = ExtResource("1_7k1un")
+shader_parameter/wave_count = 20.0
+shader_parameter/speed = 2.0
+shader_parameter/height = 0.015
