@@ -4,3 +4,6 @@
 
 [node name="Boot" type="Node"]
 script = ExtResource("1_c66r1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

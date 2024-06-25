@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://beeo6wb5btqkj"]
+[gd_scene load_steps=10 format=3 uid="uid://beeo6wb5btqkj"]
 
 [ext_resource type="Texture2D" uid="uid://c8ompoubljbgd" path="res://Images/inside.png" id="1_wptoa"]
 [ext_resource type="Texture2D" uid="uid://brvfahusbs111" path="res://Images/cauldron.png" id="2_ety51"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://MainScenes/launch_cauldron_minigame.gd" id="4_4ilvp"]
 [ext_resource type="PackedScene" uid="uid://2vt8vqdvn28t" path="res://Objects/Scale.tscn" id="4_irobb"]
 [ext_resource type="Texture2D" uid="uid://rxopjklc2wod" path="res://Images/tray.png" id="6_55bl5"]
+[ext_resource type="PackedScene" uid="uid://c0j5wdrc46ee5" path="res://Dialogue/dialogue.tscn" id="7_dxtfb"]
+[ext_resource type="Material" uid="uid://bht284oabfpgr" path="res://Objects/Liquid/liquid_shader_material.tres" id="7_xlap2"]
+[ext_resource type="Texture2D" uid="uid://ci0033brmgw8x" path="res://Images/cauldron_liquid.PNG" id="8_18ovs"]
 
 [node name="NewGame" type="Node2D"]
 
@@ -49,5 +52,20 @@ rotation = -1.5708
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("6_55bl5")
 region_rect = Rect2(320, 855, 379, 150)
+
+[node name="CauldronLiquid" type="TextureRect" parent="Control"]
+z_index = 2
+material = ExtResource("7_xlap2")
+offset_left = 279.71
+offset_top = 435.006
+offset_right = 498.71
+offset_bottom = 493.006
+scale = Vector2(0.960718, 0.960718)
+mouse_filter = 2
+texture = ExtResource("8_18ovs")
+stretch_mode = 2
+
+[node name="Dialogue" parent="." instance=ExtResource("7_dxtfb")]
+z_index = 2
 
 [connection signal="pressed" from="Control/Cauldron" to="Control/Cauldron" method="_on_pressed"]

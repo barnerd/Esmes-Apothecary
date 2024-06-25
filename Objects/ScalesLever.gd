@@ -12,7 +12,7 @@ func _ready() -> void:
 	start_new_tween()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$LeftScale.rotation = -self.rotation
 	$RightScale.rotation = -self.rotation
 

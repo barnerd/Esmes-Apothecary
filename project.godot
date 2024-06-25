@@ -19,10 +19,20 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+__InkRuntime="*res://addons/inkgd/ink_runtime.gd"
 SignalBus="*res://ProjectTemplate/SignalBus/signal_bus.gd"
 SceneManager="*res://ProjectTemplate/SceneManager/scene_manager.gd"
 SoundManager="*res://ProjectTemplate/SoundManager/sound_manager.gd"
 SettingsManager="*res://ProjectTemplate/SettingsManager/settings_manager.gd"
+StoryManager="*res://ProjectTemplate/StoryManager/story_manager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/inkgd/plugin.cfg")
+
+[inkgd]
+
+register_templates=true
 
 [input]
 

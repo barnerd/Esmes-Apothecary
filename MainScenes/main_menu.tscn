@@ -1,22 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://s7no0auxep3y"]
+[gd_scene load_steps=10 format=3 uid="uid://s7no0auxep3y"]
 
 [ext_resource type="Texture2D" uid="uid://bhgv1riiqpevt" path="res://Images/witchs hut.png" id="1_00r6i"]
 [ext_resource type="Script" path="res://MainScenes/MainMenu/settings_button.gd" id="1_motlp"]
+[ext_resource type="Script" path="res://MainScenes/main_menu.gd" id="1_nvt7n"]
 [ext_resource type="Script" path="res://MainScenes/MainMenu/new_game_button.gd" id="1_rkvwr"]
 [ext_resource type="Script" path="res://MainScenes/MainMenu/continue_button.gd" id="2_0n7q5"]
+[ext_resource type="FontFile" uid="uid://c7635wpwqg2we" path="res://Fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf" id="2_3erfa"]
+[ext_resource type="AudioStream" uid="uid://daf7lsr1lsay8" path="res://Sounds/Lonely Witch.mp3" id="2_epk64"]
 [ext_resource type="Script" path="res://MainScenes/MainMenu/quit_button.gd" id="3_xaonx"]
+[ext_resource type="AudioStream" uid="uid://7jopyy2wuqkf" path="res://Sounds/click_001.ogg" id="6_6gd80"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_nvt7n")
+background_music = ExtResource("2_epk64")
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
 offset_top = -60.0
 offset_right = 1148.0
 offset_bottom = 775.0
@@ -26,24 +24,25 @@ stretch_mode = 4
 flip_h = true
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -442.0
 offset_top = 73.0
-offset_right = -32.0
-offset_bottom = 233.0
+offset_right = -12.0
+offset_bottom = 156.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="PanelContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
+theme_override_colors/font_color = Color(0.435294, 0.94902, 0.976471, 1)
+theme_override_fonts/font = ExtResource("2_3erfa")
+theme_override_font_sizes/font_size = 60
 text = "Esme's Apothecary"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -60,14 +59,18 @@ theme_override_constants/separation = 20
 [node name="NewGameLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.435294, 0.94902, 0.976471, 1)
+theme_override_fonts/font = ExtResource("2_3erfa")
+theme_override_font_sizes/font_size = 20
 text = "TITLE_SCREEN_NEW_GAME_BUTTON"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_rkvwr")
+ui_sound = ExtResource("6_6gd80")
 new_game_scene_path = "res://MainScenes/new_game.tscn"
 
 [node name="Button" type="Button" parent="VBoxContainer/NewGameLabel"]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,13 +82,16 @@ grow_vertical = 2
 visible = false
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.435294, 0.94902, 0.976471, 1)
+theme_override_fonts/font = ExtResource("2_3erfa")
+theme_override_font_sizes/font_size = 20
 text = "TITLE_SCREEN_CONTINUE_GAME_BUTTON"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_0n7q5")
 
 [node name="Button" type="Button" parent="VBoxContainer/ContinueLabel"]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,13 +102,16 @@ grow_vertical = 2
 [node name="SettingsLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.435294, 0.94902, 0.976471, 1)
+theme_override_fonts/font = ExtResource("2_3erfa")
+theme_override_font_sizes/font_size = 20
 text = "TITLE_SCREEN_SETTINGS_BUTTON"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_motlp")
 
 [node name="Button" type="Button" parent="VBoxContainer/SettingsLabel"]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,13 +122,16 @@ grow_vertical = 2
 [node name="QuitLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.435294, 0.94902, 0.976471, 1)
+theme_override_fonts/font = ExtResource("2_3erfa")
+theme_override_font_sizes/font_size = 20
 text = "TITLE_SCREEN_QUIT_GAME_BUTTON"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_xaonx")
 
 [node name="Button" type="Button" parent="VBoxContainer/QuitLabel"]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
