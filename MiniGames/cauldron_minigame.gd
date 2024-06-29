@@ -7,7 +7,7 @@ signal cauldron_minigame_finished(score: float)
 @onready var temp_slider = $Control/TempSlider
 @onready var hourglass = $Control/PanelContainer/Hourglass
 @onready var cauldron_liquid = $Control/CauldronLiquid
-@onready var bubbler = $CPUParticles2D
+@onready var bubbler = $Control/CauldronLiquid/CPUParticles2D
 
 var is_game_running: bool = false
 

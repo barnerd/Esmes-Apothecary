@@ -13,12 +13,12 @@
 [node name="NewGame" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
-offset_left = -5.0
-offset_top = -185.0
-offset_right = 1164.0
-offset_bottom = 666.0
+offset_left = -33.0
+offset_top = -255.0
+offset_right = 1887.0
+offset_bottom = 1141.36
 texture = ExtResource("1_wptoa")
-expand_mode = 3
+expand_mode = 5
 stretch_mode = 4
 
 [node name="Control" type="Control" parent="."]
@@ -26,21 +26,38 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 490.0
+offset_top = 276.0
+offset_right = 490.0
+offset_bottom = 276.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Cauldron" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 218.0
-offset_top = 403.0
-offset_right = 710.0
-offset_bottom = 742.0
+offset_left = -68.0
+offset_top = 446.0
+offset_right = 424.0
+offset_bottom = 785.0
 scale = Vector2(0.834951, 0.834951)
 texture_normal = ExtResource("2_ety51")
 texture_hover = ExtResource("3_4yoej")
 stretch_mode = 4
 script = ExtResource("4_4ilvp")
 cauldron_minigame_path = "res://MiniGames/CauldronMiniGame.tscn"
+
+[node name="CauldronLiquid" type="TextureRect" parent="Control"]
+z_index = 2
+material = ExtResource("7_xlap2")
+layout_mode = 0
+offset_left = -6.29004
+offset_top = 478.006
+offset_right = 212.71
+offset_bottom = 536.006
+scale = Vector2(0.960718, 0.960718)
+mouse_filter = 2
+texture = ExtResource("8_18ovs")
+stretch_mode = 2
 
 [node name="Scale" parent="Control" instance=ExtResource("4_irobb")]
 position = Vector2(748, 347)
@@ -53,19 +70,19 @@ scale = Vector2(0.24, 0.24)
 texture = ExtResource("6_55bl5")
 region_rect = Rect2(320, 855, 379, 150)
 
-[node name="CauldronLiquid" type="TextureRect" parent="Control"]
+[node name="Dialogue" parent="Control" instance=ExtResource("7_dxtfb")]
 z_index = 2
-material = ExtResource("7_xlap2")
-offset_left = 279.71
-offset_top = 435.006
-offset_right = 498.71
-offset_bottom = 493.006
-scale = Vector2(0.960718, 0.960718)
-mouse_filter = 2
-texture = ExtResource("8_18ovs")
-stretch_mode = 2
-
-[node name="Dialogue" parent="." instance=ExtResource("7_dxtfb")]
-z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = 460.0
+offset_right = 740.0
+offset_bottom = 610.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [connection signal="pressed" from="Control/Cauldron" to="Control/Cauldron" method="_on_pressed"]
